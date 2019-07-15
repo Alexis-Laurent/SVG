@@ -1,0 +1,88 @@
+﻿<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            // Laser en mouvement
+            $(document).keypress(function () {
+                startLaser();
+            });
+            function startLaser() {
+                $("#laser_gauche").animate({ opacity: '0' }, 200);
+                $("#laser_gauche").animate({ opacity: '10' }, 200);  
+            
+                $("#laser_droit").animate({ opacity: '10' }, 200);
+                $("#laser_droit").animate({ opacity: '0' }, 200);
+                startLaser();
+            }       
+        </script>
+
+        <style>
+            body {
+                background-image: url("image.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            html, body {
+                height: 100%
+            }
+        </style>
+    </head>
+
+    <body>
+        <svg viewBox="0 0 1920 1080">
+
+            <svg id="laser_gauche">
+                <line stroke-dasharray="70" x1="0" y1="700" x2="850" y2="500" stroke="red" stroke-width="3" />
+                <line stroke-dasharray="70" x1="0" y1="750" x2="850" y2="510" stroke="red" stroke-width="3" />
+            </svg>
+
+            <svg id="laser_droit">
+                <line stroke-dasharray="70" x1="1920" y1="700" x2="1050" y2="500" stroke="red" stroke-width="3" />
+                <line stroke-dasharray="70" x1="1920" y1="750" x2="1050" y2="510" stroke="red" stroke-width="3" />
+            </svg>
+
+            <svg class="equipe">
+                <polygon points="80,1020 80,800 440,800 440,1020" style="fill:black;stroke:#00FFFF;stroke-width:2;opacity:0.9" />
+                <text x="250" y="850" text-anchor="middle" fill="#00FFFF" font-size="25" font-family="monospace">VAISSEAU 875</text>
+                <text x="250" y="920" text-anchor="middle" fill="#00FFFF" font-size="25" font-family="monospace">Véronique</text>
+                <text x="250" y="890" text-anchor="middle" fill="#00FFFF" font-size="25" font-family="monospace">Thibault</text>
+                <text x="250" y="950" text-anchor="middle" fill="#00FFFF" font-size="25" font-family="monospace">Cyril</text>
+                <text x="250" y="980" text-anchor="middle" fill="#00FFFF" font-size="25" font-family="monospace">Alexis</text>
+            </svg>
+
+            <svg class="batterie">
+                <polygon points="1680,1000 1680,840 1910,840 1910,1000" style="fill:black;stroke:#00FFFF;stroke-width:2;opacity:0.9" />
+                <text x="1790" y="880" text-anchor="middle" fill="#00FFFF" font-size="25" font-family="monospace">BATTERIE</text>
+                <text x="1790" y="910" text-anchor="middle" fill="#00FFFF" font-size="25" font-family="monospace">82%</text>
+                <text x="1790" y="950" text-anchor="middle" fill="#00FFFF" font-size="25" font-family="monospace">MISSILE</text>
+                <text x="1790" y="980" text-anchor="middle" fill="#00FFFF" font-size="25" font-family="monospace">40</text>
+            </svg>
+
+            <svg class="ellipse">
+                <ellipse class="ellipse1" cx="410" cy="1020" rx="99" ry="33" stroke="#00FFFF" stroke-width="3" fill-opacity="0.7" transform="rotate(-10)" />
+                <ellipse class="ellipse1" cx="410" cy="1000" rx="79" ry="26" stroke="#00FFFF" stroke-width="3" fill-opacity="0.7" transform="rotate(-10)" />
+                <ellipse class="ellipse3" cx="1507" cy="547" rx="117" ry="65" stroke="red" stroke-width="3" fill-opacity="0.4" transform="rotate(12)" />
+                <ellipse class="ellipse3" cx="1507" cy="547" rx="110" ry="58" stroke="red" stroke-width="3" fill-opacity="0.4" transform="rotate(12)" />
+                <ellipse class="ellipse3" cx="1507" cy="547" rx="103" ry="51" stroke="red" stroke-width="3" fill-opacity="0.4" transform="rotate(12)" />
+                <circle cx="730" cy="836" r="28" stroke="#00FFFF;" stroke-width="3" fill-opacity="0.7" />
+                <line x1="730" y1="821" x2="730" y2="830" stroke="#00FFFF"></line>
+                <line x1="730" y1="838" x2="730" y2="847" stroke="#00FFFF"></line>
+                <line x1="718" y1="835" x2="727" y2="835" stroke="#00FFFF"></line>
+                <line x1="735" y1="835" x2="744" y2="835" stroke="#00FFFF"></line>
+                <path d="M460,1000 Q540,1040 675,967" stroke-width="3" style="stroke: #00FFFF; fill:none;"></path>
+                <path d="M460,1013 Q540,1053 675,980" stroke-width="3" style="stroke: #00FFFF; fill:none;"></path>
+        
+                <ellipse class="ellipse1" cx="1502" cy="675" rx="99" ry="33" stroke="#00FFFF" stroke-width="3" fill-opacity="0.7" transform="rotate(10)" />
+                <ellipse class="ellipse1" cx="1502" cy="655" rx="79" ry="26" stroke="#00FFFF" stroke-width="3" fill-opacity="0.7" transform="rotate(10)" />
+
+                <path d="M1250,965 Q1378,1042 1480,990" stroke-width="3" style="stroke: #00FFFF; fill:none;"></path>
+                <path d="M1250,978 Q1378,1055 1480,1003" stroke-width="3" style="stroke: #00FFFF; fill:none;"></path>
+
+                <path d="M1330,980 Q1490,1018 1485,950" stroke-dasharray="17,12" stroke-width="13" style="stroke: #00FFFF; fill:none;"></path>
+                <text x="1530" y="485" fill="#00FFFF" transform="rotate(20 40,20)">100%</text>
+            </svg>
+        </svg>    
+    </body>
+</html>
+
+

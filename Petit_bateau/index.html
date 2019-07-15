@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <script>
+            var timerFunction = null;
+
+            function startAnimation() {
+                if (timerFunction == null) {
+                    timerFunction = setInterval(animate, 20);
+                }
+            }
+            function stopAnimation() {
+                if (timerFunction != null) {
+                    clearInterval(timerFunction);
+                    timerFunction = null;
+                }
+            }
+            function animate() {
+                var boat = document.getElementById("bateau");
+                var newX = parseInt(boat.getAttribute("x")) + 1;
+                boat.setAttribute("x", newX);
+            }
+        </script>
+    </head>
+
+    <body>    
+        <svg viewBox="0 0 1024 400">
+
+            <!--Le bateau en mouvement-->
+            <svg id="bateau" x="10">
+                <line x1="250" y1="50" x2="250" y2="250" stroke="blue" />
+                <polygon points="250,50 250,175 125,175" style="fill:lime;stroke:purple;stroke-width:1" />
+                <polygon points="100,250 300,250 280,275 125,275" style="fill:lime;stroke:purple;stroke-width:1" />
+            </svg>
+
+            <!--Le soleil-->
+            <svg height="80" width="80">
+                <defs>
+                    <filter id="f1" x="0" y="0">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+                    </filter>
+                </defs>
+                <rect width="50" height="50" stroke="green" stroke-width="3" fill="yellow" filter="url(#f1)" />
+            </svg>
+
+            <!--La mer-->
+            <line x1="0" y1="275" x2="1024" y2="275" stroke="blue" />
+
+            <!--Les vagues-->
+            <rect x="0" y="275" width="1024" height="100" style="stroke: none; fill: url(#pattern2); mask: url(#mask6)" />
+
+            <defs>
+                <pattern id="pattern2" x="10" y="10" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <circle cx="10" cy="10" r="5" style="stroke: none; fill: #0000ff; " />
+                </pattern>
+            </defs>
+
+        </svg>
+
+        <input type="button" onclick="startAnimation()" value="START" />
+        <input type="button" onclick="stopAnimation()" value="STOP" />
+
+    </body>
+</html>
